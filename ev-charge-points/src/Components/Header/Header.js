@@ -10,7 +10,7 @@ function Header() {
       <div className="container-fluid">
         <img src={risky} alt='logo' />
         <a className="navbar-brand" href="/">
-          EV Charging Facilities
+        EV Charge Point Food & Ent Suggester
         </a>
         <button
           className="navbar-toggler"
