@@ -1,0 +1,13 @@
+section{
+    /* height: 250px;
+    width: 800px; */
+    display: flex;   
+    justify-content: flex-end;
+    align-items: flex-start;        
+    background-color:rgb(232, 229, 224)
+    
+}
+
+section div{    
+    padding: 10px;    
+}

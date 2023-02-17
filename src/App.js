@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer'
 
 
 import Header from './Components/Header/Header';
+import SuggestBar from './Components/SuggestBar/suggestBar';
 
 function App() {
   const [page, setPage] = useState('landing');
@@ -17,6 +18,8 @@ function App() {
       
 
       {page === 'landing' ? <Landing /> : <About />}
+      
+      <SuggestBar />
       
       
       <Footer />
