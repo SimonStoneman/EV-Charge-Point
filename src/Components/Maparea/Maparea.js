@@ -25,10 +25,34 @@ function Maparea() {
         //use the react useCallback to prevent the called function (callback) from recreating unless necessary
         const onLoad = React.useCallback(function callback(map) {
           // This is just an example of getting and using the map instance!!! don't just blindly copy!
-          const bounds = new window.google.maps.LatLngBounds(center);
-          map.fitBounds(bounds); 
-      
-          setMap(map);
+
+          if (navigator.geolocation) {
+                //Call the geolocation API of the browser window.navigator object, using the getCurrentPosition method to obtain from the users device the current location co-ords
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+            
+                        const bounds = new window.google.maps.LatLngBounds(pos);
+                        //call the fitBounds method of map object to the co-ords from pos
+                        map.fitBounds(bounds); 
+                        map.setZoom(16);
+                    
+                        //Set the map state from null to true;
+                        console.log(map);
+                        setMap(map);
+                    },
+                    () => {
+                        // handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
+            }
+            // } else {
+            //     // Browser doesn't support Geolocation
+            //     handleLocationError(false, infoWindow, map.getCenter());
+            // };
         }, []);
       
         //Define the onUnmount property as the return of callback that reset map to null via setMap
@@ -40,11 +64,12 @@ function Maparea() {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={10}
+              zoom={5}
               onLoad={onLoad}
               onUnmount={onUnmount}
             >
               { /* Child components, such as markers, info windows, etc. */ }
+              
               <></>
             </GoogleMap>
         ) : <></>
