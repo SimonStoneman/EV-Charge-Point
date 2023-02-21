@@ -1,5 +1,5 @@
 
-import SuggestBar from './Components/SuggestBar/suggestBar';
+import SuggestBar from '../Components/SuggestBar/suggestBar'
 
 function Landing() {
     return (
