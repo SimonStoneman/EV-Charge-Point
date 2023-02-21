@@ -16,6 +16,7 @@ function App() {
       
       {page === 'landing' ? <Landing /> : <About /> && <Contact /> }
 
+
       <Footer />
 
     </>

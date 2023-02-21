@@ -6,8 +6,7 @@ box-sizing: border-box;
 }
 
 .form_row {
-  background-color: #8DE4BB;
-  border-radius: 5px;
+    border-radius: 5px;
   padding: 2rem 2.75rem;
   margin-bottom: 1.75rem;
   display: grid;
@@ -16,7 +15,6 @@ box-sizing: border-box;
   grid-template-columns: 1fr 1fr;
   padding-top: 2rem;
   flex-basis: 50rem;
-  background-color: rgb(204, 201, 201);
 }
 
 .form__hidden {
