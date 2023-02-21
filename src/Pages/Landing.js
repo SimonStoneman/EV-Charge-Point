@@ -1,5 +1,5 @@
 
-import Sidebar from './Components/Sidebar/Sidebar';
+import Sidebar from '../Components/Sidebar/Sidebar';
 
 function Landing() {
     return (
