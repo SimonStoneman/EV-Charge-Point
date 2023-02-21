@@ -1,10 +1,11 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import EVchargepoints from './EVchargepoints'
+import './Maparea.css'
 
 const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: '1000px',
+    height: '1000px'
   };
   
   const center = {
@@ -12,8 +13,18 @@ const containerStyle = {
     lng: -38.523
   };
 
+//Defining the libraries required from google maps on loading (useJsApiLoader). Recommended to use this, as arrays & objects used a literals look to react as a new item and can cause re-rendering
+const libraries = ["places"];
+
+const options = {
+  disableDefaultUI: true,
+  zoomControl: true,
+}
+
 var pos;
 var bounds;
+
+let coordsArr = [];
   
 function Maparea() {
 
@@ -21,11 +32,13 @@ function Maparea() {
         const { isLoaded } = useJsApiLoader({
           id: 'google-map-script',
           googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-          libraries: ["places"]
+          libraries,
         });
       
         //Define stateful 'map' value, with inital value of null
         const [map, setMap] = React.useState(null);
+
+        const [coordsArr, setCoordsArr] = React.useState([]);
       
         //use the react useCallback to prevent the called function (callback) from recreating unless necessary
         const onLoad = React.useCallback(function callback(map) {
@@ -43,7 +56,7 @@ function Maparea() {
                         bounds = new window.google.maps.LatLngBounds(pos);
                         //call the fitBounds method of map object to the co-ords from pos
                         map.fitBounds(bounds); 
-                        map.setZoom(16);
+                        map.setZoom(14);
                     
                         // //Set the map state from null to true;GoogleMap
                         // console.log(map);
@@ -53,11 +66,38 @@ function Maparea() {
                         // handleLocationError(true, infoWindow, map.getCenter());
                     }
                 );
-            }
+          }
             // } else {
             //     // Browser doesn't support Geolocation
                 // handleLocationError(false, infoWindow, map.getCenter());
             // };
+
+            let request = {
+              query: "electric vehicle charging station",
+              fields: ["name", "geometry"]
+            };
+        
+            // console.log(`Using map in PlacesService, map is: ${map}`);
+            let service = new window.google.maps.places.PlacesService(map);
+            // console.log(`after window.google.maps.places.PlacesService`)
+        
+            service.findPlaceFromQuery(request, (results, status) => {
+              // console.log (`executing findPlaceFromQuery`);
+              if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+
+
+                // for (var i = 0; i < results.length; i++) {
+                //   coordsArr.push(results[i]);
+                //   console.log(`result ${i} is: ${JSON.stringify(results[i])}`)
+                // }
+
+                setCoordsArr([...results]);
+
+        
+                console.log(`coordsArr= ${JSON.stringify(coordsArr)}`);
+              }
+            });
+
         }, []);
       
         //Define the onUnmount property as the return of callback that reset map to null via setMap
@@ -65,21 +105,57 @@ function Maparea() {
           setMap(null)
         }, []);
 
+        //Define the onClick action of InfoWindows
+
+        const [selectedinfows, setSelectedInfoWS] = React.useState(null);
+
+        const onClickInfoW = React.useCallback(function callback(map) {
+        },[]);
+
         return isLoaded ? (
+          <>
+            <h1 className="mapHeader">Charge Mapz <span role="img" aria-label="lightning">⚡</span></h1>
+
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={pos}
               zoom={10}
               onLoad={onLoad}
               onUnmount={onUnmount}
+              options={options}
             >
               { /* Child components, such as markers, info windows, etc. */ }
 
-              {/* <Userlocation map={map}/> */}
-              <Marker 
-                position={pos}/>
-              <EVchargepoints />  
+              {/* Marker current users position */}
+              <Marker position={pos}></Marker>
+
+              {/* {coordsArr !== [] && */}
+
+                {coordsArr.map(function(results, i) {
+
+                  console.log(`Results items through map metho: ${results} and key is: ${i}`)
+
+                  return (
+                  
+                    <Marker key={i} position={results.geometry.location} onClick={() => {
+                      
+                    }}>
+                 
+
+                      {/* <InfoWindow position={results.geometry.location} options={{ maxWidth: 300 }}>
+                      
+                          <span>{results.name}</span>
+                        
+                      </InfoWindow> */}
+                   
+                    </Marker>
+                 
+                  );
+                })}
+              {/* } */}
+
             </GoogleMap>
+          </>
         ) : <></>
 };
 
