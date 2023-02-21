@@ -8,6 +8,7 @@ import Footer from './Components/Footer/Footer'
 
 import Header from './Components/Header/Header';
 
+
 function App() {
   const [page, setPage] = useState('landing');
 
@@ -17,6 +18,8 @@ function App() {
       
 
       {page === 'landing' ? <Landing /> : <About />}
+      
+      
       
       
       <Footer />
