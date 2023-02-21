@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Landing from './Pages/Landing';
 import About from './Pages/About';
-import Contact from './Pages/Contact'
+import Contact from './Pages/Contact';
 
 import Header from './Components/Header/Header';
 
@@ -13,7 +13,7 @@ function App() {
     <>
       <Header setPage={setPage} />
 
-      {page === 'landing' ? <Landing /> : <About />}
+      {page === 'landing' ? <Landing /> : <About /> && <Contact /> }
  
 
     </>
