@@ -23,8 +23,6 @@ const options = {
 
 var pos;
 var bounds;
-
-let coordsArr = [];
   
 function Maparea() {
 
@@ -38,7 +36,7 @@ function Maparea() {
         //Define stateful 'map' value, with inital value of null
         const [map, setMap] = React.useState(null);
 
-        const [coordsArr, setCoordsArr] = React.useState([]);
+        
       
         //use the react useCallback to prevent the called function (callback) from recreating unless necessary
         const onLoad = React.useCallback(function callback(map) {
@@ -72,31 +70,7 @@ function Maparea() {
                 // handleLocationError(false, infoWindow, map.getCenter());
             // };
 
-            let request = {
-              query: "electric vehicle charging station",
-              fields: ["name", "geometry"]
-            };
-        
-            // console.log(`Using map in PlacesService, map is: ${map}`);
-            let service = new window.google.maps.places.PlacesService(map);
-            // console.log(`after window.google.maps.places.PlacesService`)
-        
-            service.findPlaceFromQuery(request, (results, status) => {
-              // console.log (`executing findPlaceFromQuery`);
-              if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-
-
-                // for (var i = 0; i < results.length; i++) {
-                //   coordsArr.push(results[i]);
-                //   console.log(`result ${i} is: ${JSON.stringify(results[i])}`)
-                // }
-
-                setCoordsArr([...results]);
-
-        
-                console.log(`coordsArr= ${JSON.stringify(coordsArr)}`);
-              }
-            });
+     
 
         }, []);
       
@@ -128,32 +102,8 @@ function Maparea() {
 
               {/* Marker current users position */}
               <Marker position={pos}></Marker>
-
-              {/* {coordsArr !== [] && */}
-
-                {coordsArr.map(function(results, i) {
-
-                  console.log(`Results items through map metho: ${results} and key is: ${i}`)
-
-                  return (
-                  
-                    <Marker key={i} position={results.geometry.location} onClick={() => {
-                      
-                    }}>
-                 
-
-                      {/* <InfoWindow position={results.geometry.location} options={{ maxWidth: 300 }}>
-                      
-                          <span>{results.name}</span>
-                        
-                      </InfoWindow> */}
-                   
-                    </Marker>
-                 
-                  );
-                })}
-              {/* } */}
-
+              <EVchargepoints map={map}/>
+              
             </GoogleMap>
           </>
         ) : <></>
