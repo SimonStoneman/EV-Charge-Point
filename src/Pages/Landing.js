@@ -1,10 +1,11 @@
 
+import React from 'react';
+
 import SuggestBar from '../Components/SuggestBar/suggestBar'
 
 import Sidebar from '../Components/Sidebar/Sidebar';
 
 import Maparea from '../Components/Maparea/Maparea';
-import SuggestBar from "../Components/SuggestBar/suggestBar";
 
 
 function Landing() {

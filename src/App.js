@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Landing from './Pages/Landing';
 import About from './Pages/About';
 import Contact from './Pages/Contact'
