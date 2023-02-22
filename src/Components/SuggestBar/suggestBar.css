@@ -1,8 +1,9 @@
 section{
     
     display: flex;   
-    justify-content: flex-end;
-    align-items: flex-start;        
+    /* justify-content: flex-end;
+    align-items: flex-start;         */
+    flex-direction: column;
     background-color:rgb(232, 229, 224)
     
 }
