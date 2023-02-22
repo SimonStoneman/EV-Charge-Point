@@ -1,3 +1,8 @@
+import './Sidebar.css';
+
+
+import React from "react";
+
 
 function Sidebar() {
 
@@ -6,8 +11,8 @@ function Sidebar() {
 
 
     return (
-        <>
-           <h2>sidebar</h2>
+        <aside className="sidebar pt-5">
+            <h2 className="mb-3">Menu</h2>
             <form className="form_hidden">
                 <div className="form_row">
                     <label className="form_label">Place of Interest Type:
@@ -30,8 +35,8 @@ function Sidebar() {
                     </label>
                 </div>
             </form>
-            
-        </>
+
+        </aside>
     )
 }
 

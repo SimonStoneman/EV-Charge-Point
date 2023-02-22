@@ -4,7 +4,7 @@ import EVchargepoints from './EVchargepoints'
 import './Maparea.css'
 
 const containerStyle = {
-  height: '700px',
+  height: '400px',
   width: '500px',
   maxWidth: '100%',
   maxHeight: '45vh'
