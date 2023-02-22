@@ -7,6 +7,7 @@ import Sidebar from '../Components/Sidebar/Sidebar';
 
 import Maparea from '../Components/Maparea/Maparea';
 
+
 import { Container, Row, Col } from 'react-bootstrap';
 
 
