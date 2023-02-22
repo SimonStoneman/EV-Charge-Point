@@ -26,15 +26,6 @@ function Landing() {
           <SuggestBar />
         </Col>
       </Row>
-
-
-
-
-
-
-
-
-
     </Container>
   )
 }

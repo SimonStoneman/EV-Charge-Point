@@ -1,19 +1,15 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import EVchargepoints from './EVchargepoints'
 import './Maparea.css'
 
 const containerStyle = {
-  height: '400px',
+  height: '700px',
   width: '500px',
   maxWidth: '100%',
   maxHeight: '45vh'
 };
 
-const center = {
-  lat: -3.745,
-  lng: -38.523
-};
 
 //Defining the libraries required from google maps on loading (useJsApiLoader). Recommended to use this, as arrays & objects used a literals look to react as a new item and can cause re-rendering
 const libraries = ["places"];
