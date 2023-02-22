@@ -1,0 +1,14 @@
+
+form{
+
+    display:grid;
+    margin:5px;
+    justify-content: center;
+
+}
+label {
+    margin:5px;
+}
+.button {
+    margin-top: 10px;
+}
