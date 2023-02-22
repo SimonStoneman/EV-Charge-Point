@@ -10,7 +10,6 @@ import {
 import Loader from 'react-loaders'
 import AnimatedLetters from '../Components/AnimatedLetters/AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import './about.scss'
 
 const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -70,19 +69,3 @@ const About = () => {
 }
 
 export default About
-
-
-
-
-
-
-// function About() {
-//     return (
-//       <>
-//         <h1>About</h1>
-//         <img src="https://dummyimage.com/600x400/000/fff" alt="" />
-//       </>
-//     )
-//   }
-  
-//   export default About;

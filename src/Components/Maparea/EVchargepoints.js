@@ -1,61 +1,63 @@
-import {Marker } from '@react-google-maps/api';
 import React from 'react';
 
-function EVchargepoints (props) {
+import { Marker, InfoWindow } from '@react-google-maps/api';
+import charge_icon from '../../assets/images/charge_icon.png';
+import food_icon from '../../assets/images/food_icon.png';
+
+function EVchargepoints(props) {
 
     const [coordsArr, setCoordsArr] = React.useState([]);
+
+    //State variable to toggle infowindow when charge point is selected
+    const [selectChargeP, setSelectChargeP] = React.useState(null)
 
     let request = {
         query: "electric vehicle charging station",
         fields: ["name", "geometry"]
-      };
-  
-      // console.log(`Using map in PlacesService, map is: ${map}`);
-      let service = new window.google.maps.places.PlacesService(props.map);
-      // console.log(`after window.google.maps.places.PlacesService`)
-  
-      service.findPlaceFromQuery(request, (results, status) => {
-        // console.log (`executing findPlaceFromQuery`);
+    };
+
+    let service = new window.google.maps.places.PlacesService(props.map);
+
+    service.textSearch(request, (results, status) => {
+
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
 
-
-          // for (var i = 0; i < results.length; i++) {
-          //   coordsArr.push(results[i]);
-          //   console.log(`result ${i} is: ${JSON.stringify(results[i])}`)
-          // }
-
-          setCoordsArr([...results]);
-
-  
-          console.log(`coordsArr= ${JSON.stringify(coordsArr)}`);
+            setCoordsArr([...results]);
         }
-      });
+    });
 
-    return(
+    //Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null
+    const onClick_chargeP = React.useCallback((chargepoint) => {
+        setSelectChargeP(chargepoint);
+    }, []);
+
+    // Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null
+    const onCloseClick_infoWin = React.useCallback(() => {
+        setSelectChargeP(null);
+    }, []);
+
+    return (
         <>
             {/* {coordsArr !== [] && */}
 
-            {coordsArr.map(function(results, i) {
-
-                console.log(`Results items through map metho: ${results} and key is: ${i}`)
+            {coordsArr.map(function (chargepoint, i) {
 
                 return (
-                
-                <Marker key={i} position={results.geometry.location} onClick={() => {
-                    
-                }}>
-            
 
-                    {/* <InfoWindow position={results.geometry.location} options={{ maxWidth: 300 }}>
-                    
-                        <span>{results.name}</span>
-                    
-                    </InfoWindow> */}
-                
-                </Marker>
-            
+                    <Marker key={i} position={chargepoint.geometry.location} icon={charge_icon} onClick={() => onClick_chargeP(chargepoint)}>
+
+
+                    </Marker>
+
                 );
             })}
+            {selectChargeP && (<InfoWindow position={selectChargeP.geometry.location} onCloseClick={onCloseClick_infoWin}>
+                
+                <div>
+                    <span>{selectChargeP.name}</span>
+                </div>
+
+            </InfoWindow>)}
         </>
     )
 
