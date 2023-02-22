@@ -106,8 +106,7 @@ function Maparea() {
 
           {/* Marker current users position */}
           <Marker position={pos}></Marker>
-          <EVchargepoints map={map} />
-
+          {map && <EVchargepoints map={map} />}
         </GoogleMap>
       </div>
     </div>
