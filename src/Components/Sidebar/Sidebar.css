@@ -1,0 +1,18 @@
+.sidebar {
+  padding-left: 10px;
+}
+
+.sidebar > form:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .sidebar select {
+    min-width: 150px; 
+  }
+}
