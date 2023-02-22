@@ -18,8 +18,8 @@ function Landing() {
           <Sidebar />
         </Col>
         <Col md="7" sm="12" className="text-center d-flex flex-column align-items-center">
-          <h1 className="main-header-text text-center mt-5">Landing</h1>
-          <p className="sub-header-text text-center lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, qui veniam, quas, possimus nulla cumque corporis fugit impedit dolor quibusdam suscipit? Id doloremque mollitia aliquid, molestiae magnam quae? Libero, dicta?</p>
+          <h1 className="main-header-text text-center mt-5">EV Charging Point App</h1>
+          <p className="sub-header-text text-center lh-lg">This App is used to plan EV Charging Point based on your location using Google Map Api. It has also additional features to search nearby Restaurant, Shopping and Entertainment.</p>
           <Maparea />
         </Col>
         <Col md="3" sm="12">
