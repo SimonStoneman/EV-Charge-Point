@@ -1,11 +1,16 @@
+h2 {
+    display: flex;
+    margin: 10px 0px;
+    flex-direction: column;
+}
 
 form{
-
-    display:grid;
-    margin:5px;
+    display: flex;
+    margin: 10px 0px;
+    flex-direction: column;
     justify-content: center;
-
 }
+
 label {
     margin:5px;
 }

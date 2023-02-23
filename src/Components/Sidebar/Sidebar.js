@@ -29,8 +29,9 @@ function Sidebar() {
                 <div className="form_row">
                     <label className="form_label">Distance from Selected Charge Point:
                         <select >
-                            <option value="domestic">Domestic charge</option>
-                            <option value="rapid">Rapid Charge</option>
+                            <option>1 mile</option>
+                            <option>3 miles</option>
+                            <option>5 miles</option>
                         </select>
                     </label>
                 </div>

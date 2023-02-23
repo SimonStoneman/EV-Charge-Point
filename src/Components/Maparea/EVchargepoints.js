@@ -5,9 +5,12 @@ import Poi from './Poi';
 
 import charge_icon from '../../assets/images/charge_icon.png';
 
+
+var coordsArr = [];
+
 function EVchargepoints(props) {
 
-    const [coordsArr, setCoordsArr] = React.useState([]);
+    const [coordsArrRdy, setCoordsArrRdy] = React.useState(null);
 
     //State variable to toggle infowindow when charge point is selected
     const [selectChargeP, setSelectChargeP] = React.useState(null)
@@ -25,7 +28,15 @@ function EVchargepoints(props) {
 
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
 
-            setCoordsArr([...results]);
+            // setCoordsArr([...results]);
+            // console.log(results);
+            for (var i = 0; i < results.length; i++) {
+                coordsArr.push(results[i]);
+                // console.log(`item ${i} is: ${JSON.stringify(results[i])}`);
+            }
+
+            // console.log(`coords contains: ${JSON.stringify(coords)}`);
+            setCoordsArrRdy(true);
         }
     });
 
@@ -44,7 +55,10 @@ function EVchargepoints(props) {
         <>
             {/* {coordsArr !== [] && */}
 
-            {coordsArr.map(function (chargepoint, i) {
+            {/* {coordsArr.map(function (chargepoint, i) { */}
+            {coordsArrRdy && coordsArr.map(function (chargepoint, i) {
+
+                // console.log(`in map of coords, chargepoint is: ${JSON.stringify(chargepoint)}`);
 
                 return (
 
@@ -62,7 +76,7 @@ function EVchargepoints(props) {
                 </div>
 
             </InfoWindow>)}
-            {selectChargeP && (<Poi map={props.map}/>)}
+            {selectChargeP && <Poi map={props.map} location={selectChargeP.geometry.location}/>}
         </>
     )
 
