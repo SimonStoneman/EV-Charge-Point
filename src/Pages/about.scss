@@ -1,13 +1,15 @@
 
 .about-page {
+  display: flex;
+  margin: 0;
   background: rgb(50, 50, 89);
   min-height: 100%;
-  
+
   .text-zone {
-    position: relative;
+    position:relative;
     padding-top: 150px;
     left: 10%;
-    top: 50%;
+    top: 150px;
     transform: translateY(-50%);
     width: 35%;
     vertical-align: middle;
@@ -50,13 +52,14 @@
   }
 }
 
+
 .stage-cube-cont {
     width: 50%;
     height: 100%;
-    top: 0;
-    padding-top: 18%;
+    top: 150px;
+    padding-top: 5%;
     margin-left: 0;
-    position: absolute;
+    position:absolute;
     right: 0;
     overflow: hidden;
   }

@@ -76,7 +76,9 @@ img {
 
 /* Landing */
 
-
+.mainContent {
+  flex-grow: 1;
+}
 
 .main-header-text, .sub-header-text {
   color: #222;
