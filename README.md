@@ -19,7 +19,7 @@ SO THAT I can find the a restaurant to eat at via its description and user ratin
 <br />
 
 <div align="center">
-  <img src="assets\images\.png" alt="The screenshot displays the RefuelRecharge website. On the website, map is displayed at the users location (from device) with a marker representing thier position." >
+  <img src="assets\images\RechargeRefuel-Splash.png" alt="The screenshot displays the RefuelRecharge website. On the website, map is displayed at the users location (from device) with a marker representing thier position." >
 </div>
 
 <br />
@@ -31,7 +31,7 @@ SO THAT I can find the a restaurant to eat at via its description and user ratin
 <br />
 
 <div align="center">
-  <img src="assets\images\.png" alt="The screenshot displays the RechargeRefuel website. User has selected a charge point, displaying infobox about it and icons for restaurants around selected location are displayed" >
+  <img src="assets\images\RechargeRefuel-SelectChargeP-DispPOIs.png" alt="The screenshot displays the RechargeRefuel website. User has selected a charge point, displaying infobox about it and icons for restaurants around selected location are displayed" >
 </div>
 
 <br />
