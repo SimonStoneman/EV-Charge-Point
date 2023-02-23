@@ -57,6 +57,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SimonStoneman/EV-Charge-Point/issues"
+
   },
   "homepage": "https://localhost:3000/"
+  }
+
 }
