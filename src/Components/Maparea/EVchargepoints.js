@@ -15,7 +15,7 @@ function EVchargepoints(props) {
     //State variable to toggle infowindow when charge point is selected
     const [selectChargeP, setSelectChargeP] = React.useState(null)
 
-    const [enablePoi, setEnablePoi] = React.useState(null);
+    // const [enablePoi, setEnablePoi] = React.useState(null);
 
     let request = {
         query: "electric vehicle charging station",
@@ -43,7 +43,7 @@ function EVchargepoints(props) {
     //Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null
     const onClick_chargeP = React.useCallback((chargepoint) => {
         setSelectChargeP(chargepoint);
-        setEnablePoi(true)
+        // setEnablePoi(true)
     }, []);
 
     // Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null

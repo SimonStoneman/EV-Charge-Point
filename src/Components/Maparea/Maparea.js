@@ -77,13 +77,6 @@ function Maparea() {
     setMap(null)
   }, []);
 
-  //Define the onClick action of InfoWindows
-
-  const [selectedinfows, setSelectedInfoWS] = React.useState(null);
-
-  const onClickInfoW = React.useCallback(function callback(map) {
-  }, []);
-
   return isLoaded ? (
     <div className="landing-content">
 
