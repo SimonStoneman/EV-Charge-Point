@@ -89,7 +89,6 @@ function Maparea() {
 
 
       <div className="map-wrapper">
-        <h1 className="mapHeader">Charge Mapz <span role="img" aria-label="lightning">⚡</span></h1>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={pos}

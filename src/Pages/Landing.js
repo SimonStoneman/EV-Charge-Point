@@ -19,8 +19,7 @@ function Landing() {
           <Sidebar />
         </Col>
         <Col md="7" sm="12" className="text-center d-flex flex-column align-items-center">
-          <h1 className="main-header-text text-center mt-5">EV Charging Point App</h1>
-          <p className="sub-header-text text-center lh-lg">This App is used to plan EV Charging Point based on your location using Google Map Api. It has also additional features to search nearby Restaurant, Shopping and Entertainment.</p>
+          <p className="sub-header-text text-center lh-lg">RechargeRefuel allows you to identify Points of Interest around the selected charge point to while away the hours spent waiting for your pride and joy recharge!</p>
           <Maparea />
         </Col>
         <Col md="3" sm="12">
