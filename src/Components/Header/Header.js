@@ -1,8 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
-import risky from '../../assets/images/risky.jpeg'
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import './header.css'
 
 function Header() {
