@@ -7,7 +7,7 @@ import './header.css'
 
 function Header() {
   return (
-    <header>
+    <header className='container'>
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand href="/">RechargeRefuel</Navbar.Brand>
