@@ -2,15 +2,18 @@
 
 
 footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
     display:flex;
     justify-content: space-between;    
     background-color: bisque;
     align-items:center;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 50px;
-    
-      
-    
 }
 
 footer p {

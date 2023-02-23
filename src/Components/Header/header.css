@@ -1,5 +1,10 @@
 .navbar {
 	background: #555;
+	color: #ddd;
+}
+
+.navbar a {
+	color: #ddd;
 }
 
 .nav-item a {
@@ -19,17 +24,20 @@
 	box-shadow: none !important;
 }
 
-.navbar-brand img {
-	border: 3px solid #ccc;
-}
+
 
 @media (min-width: 992px) {
+
+	.navbar a {
+		font-size: 2rem;
+	}
+
 	.nav-item svg {
 		display: none;
 	}
 
 	.nav-item a {
-		font-size: 1.3rem;
+		font-size: 2rem;
 	}
 
 	.nav-item a.active {
