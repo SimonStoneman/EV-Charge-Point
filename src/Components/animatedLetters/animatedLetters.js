@@ -1,4 +1,3 @@
-import React from 'react'
 import './AnimatedLetters.scss'
 
 const AnimatedLetters = ({ letterClass, strArray, idx }) => {
