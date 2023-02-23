@@ -1,6 +1,5 @@
 import './about.scss';
-import AnimatedLetters from '../Components/AnimatedLetters/animatedLetters';
-import { useEffect, useState } from 'react';
+import AnimatedLetters from '../Components/AnimatedLetters/AnimatedLetters';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3, faGithub, faHtml5, faJsSquare, faLinkedin, faReact } from '@fortawesome/free-brands-svg-icons';
 
