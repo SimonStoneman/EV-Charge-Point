@@ -1,21 +1,18 @@
 import React from 'react';
+
 import { Marker, InfoWindow } from '@react-google-maps/api';
-import Poi from './Poi';
 
+import food_icon from '../../assets/images/food_icon.png';
 
-import charge_icon from '../../assets/images/charge_icon.png';
-
-function EVchargepoints(props) {
+function Poi(props) {
 
     const [coordsArr, setCoordsArr] = React.useState([]);
 
     //State variable to toggle infowindow when charge point is selected
-    const [selectChargeP, setSelectChargeP] = React.useState(null)
-
-    const [enablePoi, setEnablePoi] = React.useState(null);
+    const [selectPoi, setSelectPoi] = React.useState(null)
 
     let request = {
-        query: "electric vehicle charging station",
+        query: "restaurant",
         fields: ["name", "geometry"]
     };
 
@@ -30,42 +27,40 @@ function EVchargepoints(props) {
     });
 
     //Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null
-    const onClick_chargeP = React.useCallback((chargepoint) => {
-        setSelectChargeP(chargepoint);
-        setEnablePoi(true)
+    const onClick_poi= React.useCallback((poi) => {
+        setSelectPoi(poi);
     }, []);
 
     // Event to detect when the 'x' has been clicked and then changed the state of selectChargeP back to null
     const onCloseClick_infoWin = React.useCallback(() => {
-        setSelectChargeP(null);
+        setSelectPoi(null);
     }, []);
 
     return (
         <>
             {/* {coordsArr !== [] && */}
 
-            {coordsArr.map(function (chargepoint, i) {
+            {coordsArr.map(function (poi, i) {
 
                 return (
 
-                    <Marker key={i} position={chargepoint.geometry.location} icon={charge_icon} onClick={() => onClick_chargeP(chargepoint)}>
+                    <Marker key={i} position={poi.geometry.location} icon={food_icon} onClick={() => onClick_poi(poi)}>
 
 
                     </Marker>
 
                 );
             })}
-            {selectChargeP && (<InfoWindow position={selectChargeP.geometry.location} onCloseClick={onCloseClick_infoWin}>
+            {selectPoi && (<InfoWindow position={selectPoi.geometry.location} onCloseClick={onCloseClick_infoWin}>
                 
                 <div>
-                    <span>{selectChargeP.name}</span>
+                    <span>{selectPoi.name}</span>
                 </div>
 
             </InfoWindow>)}
-            {selectChargeP && (<Poi map={props.map}/>)}
         </>
     )
 
 }
 
-export default EVchargepoints
+export default Poi

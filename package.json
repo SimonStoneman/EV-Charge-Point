@@ -58,5 +58,5 @@
   "bugs": {
     "url": "https://github.com/SimonStoneman/EV-Charge-Point/issues"
   },
-  "homepage": "https://github.com/SimonStoneman/EV-Charge-Point#readme"
+  "homepage": "https://localhost:3000/"
 }
