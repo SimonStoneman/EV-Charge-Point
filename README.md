@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# RechargeRefuel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The Repository
 
-## Available Scripts
+The objective of this project is to create a react based SOA website that can be used to highlight restaurants around a selected chargepoint that the user is at, from third party apis. 
 
-In the project directory, you can run:
+### User Story
 
-### `npm start`
+```
+AS A user
+I WANT to be able to search for restaurants near my chargepoint
+SO THAT I can find the a restaurant to eat at via its description and user rating
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Map located at users location based on device information
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div align="center">
+  <img src="assets\images\.png" alt="The screenshot displays the RefuelRecharge website. On the website, map is displayed at the users location (from device) with a marker representing thier position." >
+</div>
 
-### `npm run build`
+<br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Electric Vehicle charge points are automatically loaded around user location
+    - User can select a charge point and a infomation is displayed
+    - Upon selection also, restaurants within this location are displayed
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<div align="center">
+  <img src="assets\images\.png" alt="The screenshot displays the RechargeRefuel website. User has selected a charge point, displaying infobox about it and icons for restaurants around selected location are displayed" >
+</div>
 
-### `npm run eject`
+<br />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Website Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* https://
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Feedback
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Please [file an issue at](https://github.com/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Copyright
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+© 2023 RechargeRefuel. All Rights Reserved.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Licensed under the [MIT](LICENSE) license.
