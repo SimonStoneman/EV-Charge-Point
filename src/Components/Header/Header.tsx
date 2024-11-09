@@ -2,15 +2,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import './header.css'
+import './header.css';
 
 function Header() {
   return (
     <header className='container'>
-      <Navbar expand="lg">
+      <Navbar expand="lg" variant="light">
         <Container>
           <Navbar.Brand href="/">RechargeRefuel</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" variant="light">
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             <FontAwesomeIcon
               icon={faBars}
               size="lg"
@@ -46,6 +46,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
