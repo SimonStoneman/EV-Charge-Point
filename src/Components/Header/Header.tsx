@@ -2,11 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import './header.css';
 
 function Header() {
   return (
-    <header className='container'>
+    <header className='basis-auto bg-blue'>
       <Navbar expand="lg" variant="light">
         <Container>
           <Navbar.Brand href="/">RechargeRefuel</Navbar.Brand>

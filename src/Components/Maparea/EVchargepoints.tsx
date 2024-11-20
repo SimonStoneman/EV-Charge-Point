@@ -186,18 +186,18 @@ const EVchargepoints: React.FC<EVchargepointsProps> = () => {
                         } 
                         return (
                           <article key={index} className="flex justify-stretch gap-x-2">
-                            <p className="m-0">
+                            <section className="m-0">
                               <h5 className="min-w-28 shrink">Type</h5> 
                               <p className="m-0">{aggregation.type.replace("CONNECTOR_TYPE_", "").replace("EV_", "")}</p>
-                            </p>
-                            <p className="m-0">
+                            </section>
+                            <section className="m-0">
                               <h5 className="min-w-24 shrink">Max Rate</h5>
                               <p className="m-0">{aggregation.maxChargeRateKw} kW</p>
-                            </p> 
-                            <p className={`m-0 ${bgColorClass} p-2 rounded`}>
+                            </section> 
+                            <section className={`m-0 ${bgColorClass} p-2 rounded`}>
                               <h5 className="min-w-28 shrink">Availability</h5>
                               <p className="m-0">{aggregation.availableCount ? (`${aggregation.availableCount}/${aggregation.count}`) : (`${aggregation.count}/${aggregation.count}`)}</p>
-                            </p>
+                            </section>
                           </article>
                         );
                       })}

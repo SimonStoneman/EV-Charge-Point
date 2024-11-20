@@ -1,4 +1,3 @@
-import '../Pages/contact.css';
 import Button from 'react-bootstrap/Button';
 import React from 'react';
 

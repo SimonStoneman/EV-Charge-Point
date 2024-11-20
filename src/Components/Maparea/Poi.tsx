@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Marker, InfoWindow, useMap } from '@vis.gl/react-google-maps';
+import { usePoiContext } from './PoiContext';
 
 const food_icon = require('../../assets/images/food_icon.png');
 
@@ -19,6 +20,7 @@ const Poi: React.FC<PoiProps> = (props) => {
   const [coordsArr, setCoordsArr] = useState<PlaceResult[]>([]);
   const [coordsArrRdy, setCoordsArrRdy] = useState<boolean | null>(null);
   const [selectPoi, setSelectPoi] = useState<PlaceResult | null>(null);
+  const { setData } = usePoiContext();
 
   const mapRef = useMap();
 
@@ -28,7 +30,7 @@ const Poi: React.FC<PoiProps> = (props) => {
         query: "restaurant",
         location: props.location,
         radius: 250.0,
-        fields: ["name", "geometry", "rating"]
+        fields: ["name", "geometry", "rating"],
       };
 
       const service = new window.google.maps.places.PlacesService(mapRef);
@@ -41,13 +43,14 @@ const Poi: React.FC<PoiProps> = (props) => {
               newCoordsArr.push(results[i] as PlaceResult);
             }
           }
-          console.log("POI's found:", newCoordsArr); // Log the chargepoints to the console
+          console.log("POI's found:", newCoordsArr);
           setCoordsArr(newCoordsArr);
+          setData(newCoordsArr);
           setCoordsArrRdy(true);
         }
       });
     }
-  }, [mapRef, props.location]);
+  }, [mapRef, props.location, setData]);
 
   const onClick_poi = useCallback((poi: PlaceResult) => {
     setSelectPoi(poi);

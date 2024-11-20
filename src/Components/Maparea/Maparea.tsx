@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { APIProvider, Map, MapCameraChangedEvent, Marker} from '@vis.gl/react-google-maps';
-import './Maparea.css';
 import EVchargepoints from './EVchargepoints';
 
 interface Position {
@@ -53,7 +52,7 @@ const Maparea: React.FC = () => {
           onCameraChanged={(ev: MapCameraChangedEvent) =>
             console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
           }
-          // style={{ width: '100vw', height: '100vh' }}
+          className={'rounded-md flex-grow'}
         >
           <Marker position={{ lat: pos.lat, lng: pos.lng }} />
           <EVchargepoints />

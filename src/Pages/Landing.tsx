@@ -1,11 +1,10 @@
 
 import React from 'react';
-
 import SuggestBar from '../Components/SuggestBar/suggestBar'
-
 import Sidebar from '../Components/Sidebar/Sidebar';
-
 import Maparea from '../Components/Maparea/Maparea';
+
+
 
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -13,8 +12,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function Landing() {
   return (
-    <Container fluid as="main">
-      <Row>
+    <Container fluid as="main" className='flex-grow'>
+      <Row className="h-100 py-5">
         <Col md="2" sm="12">
           <Sidebar />
         </Col>

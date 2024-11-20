@@ -1,17 +1,10 @@
-import './Sidebar.css';
-
-
 import React from "react";
 
 
 function Sidebar() {
 
-    // const [POISelect, setPOISelect] = 
-
-
-
     return (
-        <aside className="sidebar pt-5">
+        <aside className="sidebar pt-5 bg-blue-dark rounded-md">
             <h2 className="mb-3">Menu</h2>
             <form className="form_hidden">
                 <div className="form_row">
