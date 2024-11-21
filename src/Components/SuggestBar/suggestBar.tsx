@@ -9,9 +9,9 @@ const SuggestBar: React.FC = () => {
     const { data } = usePoiContext();
 
     return (
-        <aside className='bg-blue-dark rounded-md'>
+        <aside className='flex flex-col items-center justify-center bg-blue-dark rounded-md pt-4 px-4'>
             {data.slice(0, 5).map((place, index) => (
-                <Card key={index} style={{ width: '18rem' }}>
+                <Card key={index} className="w-100 mb-4">
                     <Card.Img variant="top" src="holder.js/100px180" alt={`${place.name} image`} />
                     <Card.Body>
                         <Card.Title>{place.name}</Card.Title>

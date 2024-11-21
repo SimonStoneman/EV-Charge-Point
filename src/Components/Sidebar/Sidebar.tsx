@@ -4,27 +4,27 @@ import React from "react";
 function Sidebar() {
 
     return (
-        <aside className="sidebar pt-5 bg-blue-dark rounded-md">
-            <h2 className="mb-3">Menu</h2>
-            <form className="form_hidden">
-                <div className="form_row">
-                    <label className="form_label">Place of Interest Type:
-                        <select>
-                            <option value="Food">Food</option>
-                            <option value="shopping">Shopping</option>
-                            <option value="tourist">Tourist</option>
-                            <option value="entertainment">Entertainment</option>
+        <aside className="flex flex-col bg-blue-dark rounded-md p-2">
+            <h2 className="text-white">Menu</h2>
+            <form>
+                <div className="flex">
+                    <label className="text-white">Place of Interest Type:
+                        <select className="ml-2">
+                            <option className='text-black' value="Food">Food</option>
+                            <option className='text-black' value="shopping">Shopping</option>
+                            <option className='text-black' value="tourist">Tourist</option>
+                            <option className='text-black' value="entertainment">Entertainment</option>
                         </select>
                     </label>
                 </div>
             </form>
             <form className="form_hidden">
                 <div className="form_row">
-                    <label className="form_label">Distance from Selected Charge Point:
-                        <select >
-                            <option>1 mile</option>
-                            <option>3 miles</option>
-                            <option>5 miles</option>
+                    <label className="text-white">Distance from Selected Charge Point:
+                        <select className="ml-2" >
+                            <option className='text-black'>1 mile</option>
+                            <option className='text-black'>3 miles</option>
+                            <option className='text-black'>5 miles</option>
                         </select>
                     </label>
                 </div>

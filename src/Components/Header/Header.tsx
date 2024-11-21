@@ -8,7 +8,16 @@ function Header() {
     <header className='basis-auto bg-blue'>
       <Navbar expand="lg" variant="light">
         <Container>
-          <Navbar.Brand href="/">RechargeRefuel</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img
+              src={require('../../assets/images/rechargerefuel_logo.jpeg')}
+              width='120'
+              height='120'
+              className='d-inline-block align-top'
+              alt='RechargeRefuel Logo'
+            />{''}
+            RechargeRefuel
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <FontAwesomeIcon
               icon={faBars}

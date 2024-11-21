@@ -52,7 +52,6 @@ const Maparea: React.FC = () => {
           onCameraChanged={(ev: MapCameraChangedEvent) =>
             console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
           }
-          className={'rounded-md flex-grow'}
         >
           <Marker position={{ lat: pos.lat, lng: pos.lng }} />
           <EVchargepoints />
