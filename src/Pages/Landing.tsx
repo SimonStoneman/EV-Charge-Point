@@ -14,14 +14,14 @@ function Landing() {
   return (
     <Container fluid as="main" className='flex-grow'>
       <Row className="h-100 py-5">
-        <Col md="2" sm="12">
+        <Col md="1" sm="12">
           <Sidebar />
         </Col>
-        <Col md="7" sm="12" className="text-center d-flex flex-column align-items-center">
+        <Col md="9" sm="12" className="text-center d-flex flex-column align-items-center">
           <p className="sub-header-text text-center lh-lg">RechargeRefuel allows you to identify Points of Interest around the selected charge point to while away the hours spent waiting for your pride and joy recharge!</p>
           <Maparea />
         </Col>
-        <Col md="3" sm="12">
+        <Col md="2" sm="12">
           <SuggestBar />
         </Col>
       </Row>

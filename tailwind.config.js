@@ -12,10 +12,10 @@ module.exports = {
         dark: '#023047',
       },
       'yellow': {
-        DEFAULT: 'FFB703',
+        DEFAULT: '#FFB703',
       },
       'orange': {
-        DEFAULT: 'FB8500',
+        DEFAULT: '#FB8500',
       },
     },
   },

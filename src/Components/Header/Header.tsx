@@ -8,7 +8,7 @@ function Header() {
     <header className='basis-auto bg-blue'>
       <Navbar expand="lg" variant="light">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" className='d-flex justify-content-start'>
             <img
               src={require('../../assets/images/rechargerefuel_logo.jpeg')}
               width='120'
@@ -16,7 +16,9 @@ function Header() {
               className='d-inline-block align-top'
               alt='RechargeRefuel Logo'
             />{''}
-            RechargeRefuel
+            <Navbar.Text className='d-flex justify-content-center align-items-center ms-2'>
+              RechargeRefuel
+            </Navbar.Text>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <FontAwesomeIcon

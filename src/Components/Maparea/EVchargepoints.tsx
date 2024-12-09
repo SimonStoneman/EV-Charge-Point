@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Marker, InfoWindow, useMap, useApiIsLoaded } from '@vis.gl/react-google-maps';
 import Poi from './Poi';
+import './evchargepoints.css';
 
 const charge_icon = require('../../assets/images/charge_icon.png');
 
@@ -127,6 +128,18 @@ const EVchargepoints: React.FC<EVchargepointsProps> = () => {
       return 'bg-gray-300'; // Default background color if none of the conditions are met 
   } };
 
+  useEffect(() => { 
+    if (selectChargeP) { 
+      const interval = setInterval(() => { 
+        const infoWindow = document.querySelector('.gm-style-iw-c'); 
+        if (infoWindow) { 
+          infoWindow.classList.add('custom-info-window'); 
+          clearInterval(interval); 
+        } 
+      }, 100); 
+      return () => clearInterval(interval); 
+    } }, [selectChargeP]);
+
 
 
   return (
@@ -151,31 +164,24 @@ const EVchargepoints: React.FC<EVchargepointsProps> = () => {
       })}
 
       {selectChargeP && (
-        <InfoWindow position={selectChargeP.location} onCloseClick={onCloseClick_infoWin}>
-          <div className="flex flex-col items-center p-6 rounded-xl shadow-lg" style={{ width: '300px', fontFamily: 'Arial, sans-serif' }}>
-            <h2 className="font-bold">{selectChargeP.name}</h2>
+        <InfoWindow 
+          position={selectChargeP.location} 
+          onCloseClick={onCloseClick_infoWin}
+          minWidth={300}
+          maxWidth={300} 
+        >
+          <section className="flex flex-col items-center w-full">
+            <h5 className="font-bold">{selectChargeP.name}</h5>
             {selectChargeP.streetViewUrl && (
-              <div className="shrink-0">
+              <section className="shrink">
                 <img className="size-52" src={selectChargeP.streetViewUrl} alt={selectChargeP.name}/>
-              </div>
+              </section>
             )}
-            <p>276 Upper St, London N1 2TZ</p> {/* Example address */}
-            <div>
-              {/* {selectChargeP.evOptions && (
-                <>
-                  <h3 style={{ margin: '10px 0', fontSize: '16px', color: '#333' }}>Available Chargers:</h3>
-                  <ul style={{ paddingLeft: '20px' }}>
-                    {selectChargeP.evOptions.connectorTypes.map((type, index) => (
-                      <li key={index} style={{ margin: '5px 0' }}>{type}</li>
-                    ))}
-                  </ul>
-                </>
-              )} */}
+            <section>
               {selectChargeP.evChargeOptions && (
                 <>
-                  <hr></hr>
                   <section className="rounded-lg">
-                    <h4>Information:</h4>
+                    <h6 className='mt-4'>Information:</h6>
                     <hr></hr>
                     {selectChargeP.evChargeOptions.connectorAggregation ? (
                     <>
@@ -185,18 +191,18 @@ const EVchargepoints: React.FC<EVchargepointsProps> = () => {
                           bgColorClass = getBackgroundColorClass(aggregation.availableCount, aggregation.count);
                         } 
                         return (
-                          <article key={index} className="flex justify-stretch gap-x-2">
-                            <section className="m-0">
-                              <h5 className="min-w-28 shrink">Type</h5> 
-                              <p className="m-0">{aggregation.type.replace("CONNECTOR_TYPE_", "").replace("EV_", "")}</p>
+                          <article key={index} className="flex justify-center m-2">
+                            <section className="m-0 min-w-24 flex-grow">
+                              <h6 className="flex-grow">Type</h6> 
+                              <p className="m-0 flex-grow">{aggregation.type.replace("CONNECTOR_TYPE_", "").replace("EV_", "")}</p>
                             </section>
-                            <section className="m-0">
-                              <h5 className="min-w-24 shrink">Max Rate</h5>
-                              <p className="m-0">{aggregation.maxChargeRateKw} kW</p>
+                            <section className="m-0 min-w-20 flex-grow">
+                              <h6 className="flex-grow">Max Rate</h6>
+                              <p className="m-0 flex-grow">{aggregation.maxChargeRateKw} kW</p>
                             </section> 
-                            <section className={`m-0 ${bgColorClass} p-2 rounded`}>
-                              <h5 className="min-w-28 shrink">Availability</h5>
-                              <p className="m-0">{aggregation.availableCount ? (`${aggregation.availableCount}/${aggregation.count}`) : (`${aggregation.count}/${aggregation.count}`)}</p>
+                            <section className={`m-0 ${bgColorClass} min-w-24 rounded flex-grow`}>
+                              <h6 className="flex-grow">Availability</h6>
+                              <p className="m-0 flex-grow">{aggregation.availableCount ? (`${aggregation.availableCount}/${aggregation.count}`) : (`${aggregation.count}/${aggregation.count}`)}</p>
                             </section>
                           </article>
                         );
@@ -208,14 +214,18 @@ const EVchargepoints: React.FC<EVchargepointsProps> = () => {
                   </section>
                 </>
               )}
-            </div>
-            <p>Operating Hours: 24 hours</p> {/* Example hours */}
-            <div>
+            </section>
+            {/* <section className='w-full'>
+              <hr></hr>
+              <p className='m-0'>Operating Hours: 24 hours</p>
+            </section> */}
+            {/*<section className='w-full'>
+              <hr></hr> 
               <p><a href="https://find.shell.com" target="_blank" rel="noopener noreferrer" style={{ color: '#007BFF' }}>Website</a></p>
               <p>Phone: 020 7288 0453</p>
-              <p>Rating: 5.0 stars based on 1 review</p>
-            </div>
-          </div>
+              <p className='m-0'>Rating: 5.0 stars based on 1 review</p>
+            </section> */}
+          </section>
         </InfoWindow>
       )}
 
